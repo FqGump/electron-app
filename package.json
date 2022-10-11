@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --port 4173",
-    "start": "electron ."
+    "start": "electron .",
+    "package": "electron-packager . electron-app --platform=win32 --arch=x64 --out=./out --asar --app-version=0.0.1 --overwirte --ignore=node_modules"
   },
   "dependencies": {
     "vue": "^3.2.38"
