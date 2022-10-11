@@ -52,7 +52,7 @@ export default defineConfig({
 })
 ```
 
-根目录创建 main.js 文件，大部分与Electron官网的配置相同，修改主窗口加载的页面为[1）构建Vue项目](# 1）构建Vue项目)中打包后的index.html **（此main.js并不是Vue的main.js，而是创建Electron应用窗口，引导启动的main.js）**
+根目录创建 main.js 文件，大部分与Electron官网的配置相同，修改主窗口加载的页面为Vue打包后的index.html **（此main.js并不是Vue的main.js，而是创建Electron应用窗口，引导启动的main.js）**
 ```sh
 // 控制应用生命周期和创建原生浏览器窗口的模组
 const { app, BrowserWindow } = require('electron')
