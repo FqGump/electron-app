@@ -149,21 +149,3 @@ yarn global add electron-packager   // 全局安装
 // 增加打包命令
 "package": "electron-packager . electron-app --platform=win32 --arch=x64 --out=./out --asar --app-version=0.0.1 --overwirte --ignore=node_modules"
 ```
-
-## Project Setup
-
-```sh
-yarn
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-yarn dev
-```
-
-### Compile and Minify for Production
-
-```sh
-yarn build
-```
