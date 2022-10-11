@@ -1,22 +1,30 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, Menu } = require('electron')
 const path = require('path')
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 
 function createWindow() {
     const mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
+        // frame: false,      //无边框窗口
+        // transparent: true,   //创建透明窗口
+        minWidth: 1000,
+        minHeight: 700,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js')
         }
     })
+    
+    // 设置窗口菜单
+    Menu.setApplicationMenu(null)
 
     // 加载 index.html
     mainWindow.loadFile('dist/index.html') // 此处跟electron官网路径不同，需要注意
 
     // 打开开发工具
-    mainWindow.webContents.openDevTools()
+    // mainWindow.webContents.openDevTools()
+
+    // 默认窗口最大化
+    mainWindow.maximize()
 }
 // 这段程序将会在 Electron 结束初始化
 // 和创建浏览器窗口的时候调用
