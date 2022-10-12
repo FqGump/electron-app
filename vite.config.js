@@ -7,10 +7,12 @@ import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   base: path.resolve(__dirname, './dist/'),
-  plugins: [vue()],
+  plugins: [
+    vue(),
+  ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('./src/', import.meta.url))
     }
-  }
+  },
 })

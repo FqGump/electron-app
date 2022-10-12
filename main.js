@@ -7,6 +7,9 @@ function createWindow() {
     const mainWindow = new BrowserWindow({
         // frame: false,      //无边框窗口
         // transparent: true,   //创建透明窗口
+        icon: 'dist/favicon.ico',
+        title: 'Journey With Life',       // 窗口名称，当vue index.html中设置title标签后，会将此属性覆盖
+        show: false,
         minWidth: 1000,
         minHeight: 700,
         webPreferences: {
@@ -21,7 +24,7 @@ function createWindow() {
     mainWindow.loadFile('dist/index.html') // 此处跟electron官网路径不同，需要注意
 
     // 打开开发工具
-    // mainWindow.webContents.openDevTools()
+    mainWindow.webContents.openDevTools()
 
     // 默认窗口最大化
     mainWindow.maximize()
@@ -44,6 +47,16 @@ app.whenReady().then(() => {
 app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') app.quit()
 })
+
+
+// 热加载
+const isDevelopment = !app.isPackaged
+if (isDevelopment) {
+    // require('electron-reload')(path.join(__dirname, 'build'));
+    try {
+        require('electron-reloader')(module,{});
+      } catch (_) {}
+}
 
   // 在这个文件中，你可以包含应用程序剩余的所有部分的代码，
   // 也可以拆分成几个文件，然后用 require 导入。
